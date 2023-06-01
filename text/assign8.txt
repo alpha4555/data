@@ -1,0 +1,36 @@
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('titanic1.csv')
+
+df
+
+df.isnull().sum()
+
+df = df.drop('Cabin',axis = 1)
+
+df['Age'] = df['Age'].fillna(df['Age'].mean())
+df['Embarked']=df['Embarked'].fillna(df['Embarked'].mode()[0])
+
+df
+
+df.isnull().sum()
+
+#finding patterns
+sns.displot(df['Age'])
+plt.show()
+
+sns.histplot(df['Age'])
+plt.show()
+
+sns.boxplot(x = df['Age'])
+plt.show()
+
+sns.countplot(x=df['Age'], hue= df['Sex'])
+plt.show()
+
+sns.boxplot(x=df['Sex'],y=df['Age'],hue=df['Survived'])
+plt.show()
+
+

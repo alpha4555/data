@@ -1,0 +1,24 @@
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+import numpy as np
+
+df = pd.read_csv('titanic1.csv')
+
+df.isnull().sum()
+
+df = df.drop('Cabin',axis = 1)
+
+df['Age'] = df['Age'].fillna(df['Age'].mean())
+df['Embarked'] = df['Embarked'].fillna(df['Embarked'].mode()[0])
+
+
+
+df.isnull().sum()
+
+df.dtypes
+
+sns.boxplot(x=df['Sex'],y=df['Age'])
+
+sns.boxplot(x=df['Sex'],y=df['Age'],hue=df['Survived'])
+

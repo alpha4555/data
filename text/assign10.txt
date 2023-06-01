@@ -1,0 +1,48 @@
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+import numpy as np
+
+df = pd.read_csv('titanic1.csv')
+
+df
+
+df.isnull().sum()
+
+df.describe()
+
+df.info
+
+df.dtypes
+
+sns.histplot(df['sepal_length'])
+
+sns.histplot(df['sepal_width'])
+
+sns.histplot(df['petal_length'])
+
+sns.histplot(df['petal_width'],)
+
+sns.histplot(df['species'])
+
+sns.boxplot(x = df['sepal_length'])
+
+sns.boxplot(x = df['sepal_width'])
+
+sns.boxplot(x = df['petal_length'])
+
+sns.boxplot(x = df['petal_width'])
+
+# bp = sns.boxplot(data=[df['sepal_length'], df['sepal_width'], df['petal_length'], df['petal_width']])
+# bp.set_xticklabels(['Sepal Length', 'Sepal Width', 'Petal Length', 'Petal Width'])
+# bp.set_ylabel('Measurement')
+# bp.set_title('Boxplot of Iris Dataset')
+
+bp = sns.boxplot(data=df)
+bp.set_ylabel('Measurement')
+bp.set_title('Boxplot of Iris Dataset')
+
+# syntax to create a plot
+plt.figure(figsize=(10,6))
+sns.histplot(df['sepal_width'])
+plt.show()

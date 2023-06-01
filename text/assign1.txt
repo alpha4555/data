@@ -1,0 +1,31 @@
+import numpy as np
+import pandas as pd
+
+# Load the Dataset into pandas dataframe.
+df = pd.read_csv('Heart.csv')
+
+df
+
+df.isnull().sum()
+
+df.dropna()
+
+df.describe()
+
+df.shape
+
+df.info()
+
+df['Age'] = df['Age'].astype('string')
+
+df.dtypes
+
+from sklearn.preprocessing import LabelEncoder
+le = LabelEncoder()
+
+df['ChestPain'] = le.fit_transform(df['ChestPain'])
+df
+
+df['ChestPain'].unique()
+
+
